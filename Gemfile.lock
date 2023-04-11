@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     locomotivecms_coal (1.7.0)
-      activesupport (>= 5.1.5, < 6.1)
-      faraday (~> 0.17)
+      activesupport (>= 5.1.5)
+      faraday (> 0.17)
       faraday_middleware (~> 0.13.1)
       httpclient (~> 2.8.3)
       mime-types (~> 3.3.0)
@@ -119,4 +119,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   2.1.4
+   2.2.33
