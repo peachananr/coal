@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'httpclient',             '~> 2.8.3'
   spec.add_dependency 'faraday',                '> 0.17'
-  spec.add_dependency 'faraday_middleware',     '~> 0.13.1'
+  spec.add_dependency 'faraday_middleware',     '> 1.0.0'
   spec.add_dependency 'activesupport',          '>= 5.1.5'
   spec.add_dependency 'mime-types',             '~> 3.3.0'
 
