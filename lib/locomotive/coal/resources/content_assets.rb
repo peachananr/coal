@@ -2,15 +2,9 @@ module Locomotive::Coal
   module Resources
 
     class ContentAssets < Base
-
-      def initialize(uri, credentials)
-        super(uri, credentials)
-      end
-
-
-      def index(query = nil, options = {}, locale = nil)
+      def index(query = nil, options = {})
         parameters = { where: (query || {}).to_json }.merge(options || {})
-        
+
         response = get(resources_name, parameters, true)
 
         list = response.body.map { |attributes| Resource.new(attributes) }
@@ -21,15 +15,15 @@ module Locomotive::Coal
           response.headers[:x_total_entries].to_i)
       end
 
-      def each(query = nil, options = nil, locale = nil, &block)
+      def each(query = nil, options = nil, &block)
         page = 1
         while page do
-          resources = all(query, (options || {}).merge(page: page), locale)
+          resources = all(query, (options || {}).merge(page: page))
           resources.each(&block)
           page = resources._next_page
         end
       end
-
+      
       alias :all :index
     end
 
