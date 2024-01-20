@@ -2,12 +2,17 @@ module Locomotive::Coal
   module Resources
 
     class ContentAssets < Base
+
+      def initialize(uri, credentials)
+        super(uri, credentials)
+      end
+
+
       def index(query = nil, options = {}, locale = nil)
         parameters = { where: (query || {}).to_json }.merge(options || {})
         
         response = get(resources_name, parameters, true)
-        response = get(resources_name, parameters, true)
-        
+
         list = response.body.map { |attributes| Resource.new(attributes) }
 
         PaginatedResources.new(list,
